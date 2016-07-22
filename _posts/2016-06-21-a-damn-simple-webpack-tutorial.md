@@ -20,6 +20,7 @@ $npm install webpack -g
 $npm install path/to/local-folder/my-module
 ```
 After that you will see the difference in your 'package.json':
+
 ```
 "dependencies": {
     ...
@@ -33,11 +34,13 @@ After that you will see the difference in your 'package.json':
 Create files:
 
 main.js:
+
 ```
 document.write("I love webpack!");
 ```
 
 index.html:
+
 ```
 <html>
     <body>
@@ -49,19 +52,23 @@ index.html:
 You may ask where is "bundle.js" from? It is transformed from "main.js". Why don't we simply use '<script src="main.js"></script>'? Because in a non-trivial project, we will have quite a few javascipt or other files (such as css files, etc.) that we want to put into a single file (called "bundle" file) such that users only need a single load of the "bundle" file instead of multiple loads of different JS or other files. Another reason is we can utilize the back end NodeJS packages for the front end development. These back end NodeJS packages should be translated to JS that can be understood/executed by browsers, which is implemented by tools like `webpack`.
 
 Here is the command of using webpack on the command line:
+
 ```
 $webpack ./main.js bundle.js
 ```
+
 It is always a good idea to perform all the transformation operations in a configuration file.
 
 **Step 3: Using webpack in a configuration file.**
 
 You just need `webpack` which will automatically execute a default configuration file `webpack.config.js`.
+
 ```
 $webpack
 ```
 
 webpack.config.js:
+
 ```
 var webpack = require('webpack');
 
@@ -103,6 +110,7 @@ As the real engine of webpack, `loader` usually has 4 parts:
 * `query`: optional. options passed to `babel`. Here I used "es2015" which means the to-transform file contains "es2015" features so I need babel to transform it with "babel" plugin "es2015".
 
 To use the engine specified in `loader`, you need install the engine and its options first.
+
 ```
 npm install babel-loader babel-core babel-preset-es2015 babel-preset-react --save-dev
 ```
