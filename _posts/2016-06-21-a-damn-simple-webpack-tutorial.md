@@ -102,6 +102,7 @@ The above webpack config file will transform JS files using tool `babel` to a bu
 * `loaders`: hook up the engine with to-transform files.
 
 **More on `loader`**
+
 As the real engine of webpack, `loader` usually has 4 parts:
 
 * `test`: specify the files that requires transformation.
