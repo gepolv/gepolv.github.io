@@ -113,10 +113,9 @@ Now you can simply issue `webpack` on the terminal and a 'bundle.js' will be gen
 
 Go to your root directory to create a configuration file "webpack.config.js".
 Then:
+
 ```
 $npm install webpack -g
-
 $npm install babel-loader babel-core babel-preset-es2015 --save-dev
-
 $webpack
 ```
