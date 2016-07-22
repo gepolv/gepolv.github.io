@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  ' A damn simple webpack tutorial '
-categories: [webpack, babel, es2015, react]
+categories: [webpack, babel, es2015]
 ---
 
 I need perform operations (uglify, bundle, etc. )on my Javascript files. So I learned Browserify. During the learning of Browserify, I realized Gulp would be a better choice because it is newer. So I switched to Gulp immediately. Then webpack popped up... That is why I am discussing webpack now.
