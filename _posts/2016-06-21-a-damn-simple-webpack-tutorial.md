@@ -92,7 +92,7 @@ module.exports = {
 };
 ```
 
-The above webpack config file will transform JS files using tool `babel` to a bundled file `bundle.js`. JS files under "/node_modules/" will not be transformed.
+The above webpack config file will transform JS files using tool `babel` to a bundled file `bundle.js`. JS files under "/node_modules/" will not be transformed. If you have not heard of babel, see the [link](https://babeljs.io/blog/2015/10/31/setting-up-babel-6).
 
 **A few things we need pay attentions:**
 
@@ -114,7 +114,7 @@ To use the engine specified in `loader`, you need install the engine and its opt
 ```
 npm install babel-loader babel-core babel-preset-es2015 babel-preset-react --save-dev
 ```
-If you have not heard of babel, see the [link](https://babeljs.io/blog/2015/10/31/setting-up-babel-6).
+
 Now you can simply issue `webpack` on the terminal and a 'bundle.js' will be generated.
 
 **webpack the impatient**
