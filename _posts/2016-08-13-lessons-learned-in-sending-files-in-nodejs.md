@@ -59,7 +59,7 @@ app.get('/', function(req, res) {
 app.listen(9876);
 ```
 
-You got an error: "index.js 404 Not Found". Why I got "404" this time?  Isn't "index.js" served? The answer is NO. "index.js" is not served even it seems sent by "res.sendFile(__dirname+"/index.js");". The reason is because "sendFile" finishes a response, which means all the followed information or files will be ignored and thus client side wont receive any information or files.
+You got an error: "index.js 404 Not Found". Why I got "404" this time?  Isn't "index.js" served? The answer is NO. "index.js" is not served even it seems sent by "res.sendFile(__dirname+"/index.js");". The reason is because "sendFile" finishes a response, which means all the followed information or files will be ignored and thus client side wont receive any information or files. In our case, the second "sendFile" is ingored.
 
 Then I tried "redirect",
 
@@ -89,7 +89,7 @@ app.get('/', function(req, res) {
 app.listen(9876);
 ```
 
-Unfortunately, it cannot work and you got ` "Error: Can't set headers after they are sent." `. To understand why, we need understand what "redirect" exactly means. "redirect" means it will forward you to a designated webpage/path which has to exist. So before "redirect" is used, the designated webpage/path should be there. In our case, "index.html" is not existing. To make it work, we need add a route to serve the redirection.
+Unfortunately, it cannot work and you got "Error: Can't set headers after they are sent.". To understand why, we need understand what "redirect" exactly means. "redirect" means it will forward you to a designated webpage/path which has to exist. So before "redirect" is used, the designated webpage/path should be there. In our case, "index.html" is not existing. To make it work, we need add a route to serve the redirection.
 
 ```
 var express = require("express");
