@@ -111,6 +111,9 @@ Finally, the perfect solution comes:
 
 **Approach 3: static middleware in Express.**
 
+`static` middleware can be used to serve static files such as html files, CSS files, and JavaScript files, even images. To use it, simply pass the name of the directory containing all the static files.
+
+
 ```
 <html>
 <body>
@@ -129,7 +132,9 @@ app.use(express.static(__dirname));
 app.listen(9876);
 ```
 
-Both html and javascrits files are served. What an elegant solution! Enjoy.
+Both html and javascrits files are served. 
+
+What an elegant solution! Enjoy.
 
 So the golden rule is to use `static` from `ExpressJS` as much as possible.
 
