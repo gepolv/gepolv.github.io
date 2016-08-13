@@ -118,7 +118,7 @@ npm install babel-loader babel-core babel-preset-es2015 babel-preset-react --sav
 
 Now you can simply issue `webpack` on the terminal and a 'bundle.js' will be generated.
 
-**webpack the impatient**
+**webpack for the impatient**
 
 Go to your root directory to create a configuration file "webpack.config.js".
 Then:
