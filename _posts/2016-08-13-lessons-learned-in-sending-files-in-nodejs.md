@@ -106,6 +106,7 @@ app.listen(9876);
 ```
 
 Comparing to the first approach, We are creating an another step to send a webpage. Not a good choice. 
+But note that if the redirected webpage exist, "redirect" can work here.
 
 Finally, the perfect solution comes:
 
