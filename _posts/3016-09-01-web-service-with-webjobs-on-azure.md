@@ -13,7 +13,7 @@ Before we start off, since we are making use of Azure a lot, I assume you have a
 Let us start off. 
 1: we create a Web API project by "New->Project->Visual C#->Web->ASP.NET Web Application"
 
-[Figure1]
+[Read more words!](../static/img/1newproject.PNG)
 
 Then select ASP.NET 5 -> WEB API. Note his project requires "no authentication" and uncheck "host in the cloud", as shown in picture.
 [Figure2]
