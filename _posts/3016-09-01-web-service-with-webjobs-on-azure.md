@@ -15,5 +15,16 @@ Let us start off.
 
 [Figure1]
 
-Then select ASP.NET 5
+Then select ASP.NET 5 -> WEB API. Note his project requires "no authentication" and uncheck "host in the cloud", as shown in picture.
+[Figure2]
+
+Now we already have a project ready. Let us take a look by pressing Ctrl+F5:
+[Figure 3]
+
+You may notice the address bar shows the current URL as "localhost:38229/api/values" instead of "localhost:38229". Why do we have a suffix "/api/values" in our address bar by default? It is controlled by sepcifying "launchUrl" in "launchSetting.json".
+[Figure 4]
+
+The actual handling of route "/api/values" is in a controller defined in "ValuesController.cs". It is a naming convention to name the route as a substring  
+
+
 
