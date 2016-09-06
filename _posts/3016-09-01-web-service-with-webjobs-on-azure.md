@@ -13,19 +13,19 @@ Before we start off, since we are making use of Azure a lot, I assume you have a
 Let us start off. 
 1: we create a Web API project by "New->Project->Visual C#->Web->ASP.NET Web Application"
 
-[Read more words!](../static/img/1newproject.PNG)
+![](../static/img/1newproject.PNG)
 
 Then select ASP.NET 5 -> WEB API. Note his project requires "no authentication" and uncheck "host in the cloud", as shown in picture.
-[Figure2]
+![](../static/img/2aspnet5.PNG)
 
 Now we already have a project ready. Let us take a look by pressing Ctrl+F5:
-[Figure 3]
+![](../static/img/3default.PNG)
 
 You may notice the address bar shows the current URL as "localhost:38229/api/values" instead of "localhost:38229". Why do we have a suffix "/api/values" in our address bar by default? It is specified as "launchUrl" in "launchSetting.json".
-[Figure 4]
+![](../static/img/4launchsetting.PNG)
 
 The actual handling of route "/api/values" is in a controller defined in "ValuesController.cs". The route is specified by an annotation "[Route("api/[controller]")]" which is the underneath king controlling the routing.  It is a naming convention to name the route as a substring  of the file name defining the controller. For example, if your have controller file "AbcController.cs", then your route is "../Abc". So in our case, the file name is "ValuesController.cs", so the route is "../values" (case insensitive). See the following picture for detailed explanation.
-[Figure 5]
+![](../static/img/5Controller.PNG)
 
 Now combined with the above knowledge, let us tweak it a bit.
 First, let us change the default launching webpage. We first find this line in "launchSetting.json"
@@ -38,7 +38,7 @@ change it to :
 
 Now you press "Ctrl+F5", you will get a "404" page.
 
-[Picture 6]
+![](../static/img/6_404.PNG)
 
 Do not be surprised. It is expected because this project is a WEB API project without view.
 
@@ -70,7 +70,7 @@ Right-click project name in Solution Explorer and choose Manage NuGet Packages.
 Search "WindowsAzure.Storage" and install.
 Search "ConfigurationManager" and install.
 
-[Picture 7]
+![](../static/img/7InstallPackage.PNG)
 
 Please pay attention to the red rectangles.
 
@@ -78,21 +78,21 @@ After I installed the packages, I got an error in the dependency list:
 
 NU1002 The dependency WindowsAzure.Storage 7.2.0 in project github does not support framework DNXCore,Version=v5.0.
 
-[Picture 8]
+![](../static/img/8InstallPackageError.PNG)
 
 Tried many approaches and no luck. So I have to manually remove it from my project.
-[Picture 9]
+![](../static/img/9RemoveDNX5.PNG)
 Afert removal of "dnxcore50", it looks like this:
-[Picture 10]
+![](../static/img/10after_remove.PNG)
 
 [link: http://stackoverflow.com/questions/39156147/configuring-azure-blob-access-in-asp-net-5/39156417?noredirect=1#comment65695019_39156417] shows how to do the configuration work for .net 5. 
 
 1: create an item in "appsettings.json" and put the correct information there which you can get from your Azure portal "Storage Account".
 
-[Picture 11]
+![](../static/img/11appsetting.PNG)
 
 2: Modify "Startup.cs":
-[Picture 12]
+![](../static/img/12startup.PNG)
 
 3: modify ValuesController.cs to configure Azure queue.
 
@@ -145,7 +145,7 @@ Here is what the above happens. When you issue "yourwebsite.com/api/values?v1=10
 
 Next,
 create a webjob project. 
-[Picture 13]
+![](../static/img/13createwebjob.PNG)
 
 Specify where the Webjobs should retrieve message.
 
@@ -155,25 +155,25 @@ Specify where the Webjobs should retrieve message.
 
 There are two connection string placeholders. One is for Azure storage and the other one is for dashboard displaying on Azure Portal. To get the connection string for "AzureWebJobsStorage", please refer to  https://azure.microsoft.com/en-us/documentation/articles/storage-configure-connection-string/. They can share the same connection string. But the "AzureWebJobsStorage" also need to be configured on Azure Portal.
 
-[Figure 14]
+![](../static/img/14connectionstringPortal.PNG)
 
 
 THen let us take a look at the code which does the real job. Open file "Function.cs" under Webjob project.
 
-[Figure 15]
+![](../static/img/15webjobfunction.PNG)
 
 For more information about parameter of webjob functions, please refer to :https://azure.microsoft.com/en-us/documentation/articles/websites-dotnet-webjobs-sdk-storage-queues-how-to/
 
 Then publish the two projects by right click the project names.
 
 last, we can see the webjob on Azure portal.
-[Figure 16]
+![](../static/img/16webjobonportal.PNG)
 
 if everything is correct, you can see the result by checking the log of a webjob.
-[Figure 17].
+![](../static/img/17logonPortal.PNG)
 
 However if you see:
-[Figure 18]
+![](../static/img/18dashboard-doesnt-work.png)
 
 It means your "AzureWebJobsDashboard" connection string is not set correctly.
 
