@@ -147,3 +147,33 @@ Next,
 create a webjob project. 
 [Picture 13]
 
+Specify where the Webjobs should retrieve message.
+
+"App.config"
+<add name="AzureWebJobsDashboard" connectionString="" />
+<add name="AzureWebJobsStorage" connectionString="" />
+
+There are two connection string placeholders. One is for Azure storage and the other one is for dashboard displaying on Azure Portal. To get the connection string for "AzureWebJobsStorage", please refer to  https://azure.microsoft.com/en-us/documentation/articles/storage-configure-connection-string/. They can share the same connection string. But the "AzureWebJobsStorage" also need to be configured on Azure Portal.
+
+[Figure 14]
+
+
+THen let us take a look at the code which does the real job. Open file "Function.cs" under Webjob project.
+
+[Figure 15]
+
+For more information about parameter of webjob functions, please refer to :https://azure.microsoft.com/en-us/documentation/articles/websites-dotnet-webjobs-sdk-storage-queues-how-to/
+
+Then publish the two projects by right click the project names.
+
+last, we can see the webjob on Azure portal.
+[Figure 16]
+
+if everything is correct, you can see the result by checking the log of a webjob.
+[Figure 17].
+
+However if you see:
+[Figure 18]
+
+It means your "AzureWebJobsDashboard" connection string is not set correctly.
+
