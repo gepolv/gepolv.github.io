@@ -140,3 +140,10 @@ public class ValuesController : Controller
 }
 
 
+Here is what the above happens. When you issue "yourwebsite.com/api/values?v1=10&v2=5", the handling is in this function "public string Get(int v1, int v2)". We first set up Azure queue and put the values of "v1" and "v2" as an object into queue which will be consumed by Azure Webjobs later. After that, we return the result to the browser.
+
+
+Next,
+create a webjob project. 
+[Picture 13]
+
