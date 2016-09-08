@@ -16,13 +16,13 @@ Let us start off.
 
 We create a Web API project by "New->Project->Visual C#->Web->ASP.NET Web Application"
 
-![](https://github.com/gepolv/gepolv.github.io/blob/master/static/img/1newproject.PNG)
+![](/static/img/1newproject.PNG)
 
 Then select ASP.NET 5 -> WEB API. Note his project requires "no authentication" and uncheck "host in the cloud", as shown in picture.
-![](https://github.com/gepolv/gepolv.github.io/blob/master/static/img/2aspnet5.PNG)
+![](/static/img/2aspnet5.PNG)
 
 Now we already have a project ready. Let us take a look by pressing Ctrl+F5:
-![](../static/img/3default.PNG)
+![](/static/img/3default.PNG)
 
 You may notice the address bar shows the current URL as "localhost:38229/api/values" instead of "localhost:38229". Why do we have a suffix "/api/values" in our address bar by default? It is specified as "launchUrl" in "launchSetting.json".
 ![](../static/img/4launchsetting.PNG)
