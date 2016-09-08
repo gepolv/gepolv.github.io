@@ -11,12 +11,15 @@ My development platform is Visual Studio 2015 (Update 2) using .NET 5. Since Vis
 Before we start off, since we are making use of Azure a lot, I assume you have an active Azure account and already set up your storage account.
 
 Let us start off. 
-1: we create a Web API project by "New->Project->Visual C#->Web->ASP.NET Web Application"
 
-![](../static/img/1newproject.PNG)
+**Step 1: Create a webservice.**
+
+We create a Web API project by "New->Project->Visual C#->Web->ASP.NET Web Application"
+
+![](https://github.com/gepolv/gepolv.github.io/blob/master/static/img/1newproject.PNG)
 
 Then select ASP.NET 5 -> WEB API. Note his project requires "no authentication" and uncheck "host in the cloud", as shown in picture.
-![](../static/img/2aspnet5.PNG)
+![](https://github.com/gepolv/gepolv.github.io/blob/master/static/img/2aspnet5.PNG)
 
 Now we already have a project ready. Let us take a look by pressing Ctrl+F5:
 ![](../static/img/3default.PNG)
@@ -67,6 +70,7 @@ public string Get(int id)
 
 Then Ctrl+F5, input "/api/values/1" in your address bar, see what is the result.
 
+**Step 2: Create a webjob on Azure.**
 
 Since we are creating Azure Webjobs, we need use "Azure queue". To do that, we need have our Azure storage ready and configure the connection string correctly. But before that, we need install some packages using NuGet.
 
