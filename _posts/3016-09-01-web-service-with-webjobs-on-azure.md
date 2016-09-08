@@ -30,11 +30,15 @@ The actual handling of route "/api/values" is in a controller defined in "Values
 Now combined with the above knowledge, let us tweak it a bit.
 First, let us change the default launching webpage. We first find this line in "launchSetting.json"
 
-<code>"launchUrl": "api/values"</code>
+```
+"launchUrl": "api/values"
+```
 
 change it to :
 
-<code>"launchUrl": ""</code>
+```
+"launchUrl": ""
+```
 
 Now you press "Ctrl+F5", you will get a "404" page.
 
@@ -45,21 +49,21 @@ Do not be surprised. It is expected because this project is a WEB API project wi
 Let us play the routing:
 find the following function in "ValuesController.cs"
 
-<code>
+```
 public string Get(int id)
 {
   return "value";
 }
-</code>
+```
 
 changed to:
 
-<code>
+```
 public string Get(int id)
 {
   return "value: "+id;
 }
-</code>
+```
 
 Then Ctrl+F5, input "/api/values/1" in your address bar, see what is the result.
 
@@ -96,13 +100,16 @@ Afert removal of "dnxcore50", it looks like this:
 
 3: modify ValuesController.cs to configure Azure queue.
 
+```
 using Microsoft.Azure; // Namespace for CloudConfigurationManager
 using Microsoft.WindowsAzure.Storage; // Namespace for CloudStorageAccount
 using Microsoft.WindowsAzure.Storage.Queue; // Namespace for Blob storage types
 
 using Microsoft.Extensions.OptionsModel;
 using Newtonsoft.Json;
+```
 
+```
 public class ValuesController : Controller
 {
       private AzureStorageConfig _storageConfig;
@@ -138,7 +145,7 @@ public class ValuesController : Controller
       
       ////......
 }
-
+```
 
 Here is what the above happens. When you issue "yourwebsite.com/api/values?v1=10&v2=5", the handling is in this function "public string Get(int v1, int v2)". We first set up Azure queue and put the values of "v1" and "v2" as an object into queue which will be consumed by Azure Webjobs later. After that, we return the result to the browser.
 
@@ -150,8 +157,11 @@ create a webjob project.
 Specify where the Webjobs should retrieve message.
 
 "App.config"
+
+```
 <add name="AzureWebJobsDashboard" connectionString="" />
 <add name="AzureWebJobsStorage" connectionString="" />
+```
 
 There are two connection string placeholders. One is for Azure storage and the other one is for dashboard displaying on Azure Portal. To get the connection string for "AzureWebJobsStorage", please refer to  https://azure.microsoft.com/en-us/documentation/articles/storage-configure-connection-string/. They can share the same connection string. But the "AzureWebJobsStorage" also need to be configured on Azure Portal.
 
