@@ -191,4 +191,4 @@ However if you see:
 
 It means your "AzureWebJobsDashboard" connection string is not set correctly.
 
-If you see a crash when you use the queue handling, it is caused by the fact that the queue name cannot contain capital letters!!!
+If you see a crash when you use the queue handling (function "public string Get(int v1, int v2)"), it is caused by the fact that `the queue name cannot contain capital letters!!!`
