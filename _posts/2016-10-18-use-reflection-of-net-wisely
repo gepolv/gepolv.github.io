@@ -1,0 +1,51 @@
+---
+layout: post
+title:  ' Use Reflection of .NET Wisely '
+categories: [.net, c#, reflection, appdomain, assembly]
+---
+Reflection is a technique that enable you access the information of an assembly (DLL or EXE) and then execute some method in the assembly `at runtime`. 
+
+Create a `library class`:
+
+```
+//output: readfile.dll
+namespace reflectionTest
+{
+    public class ReadFile
+    {
+        public string readFileContents()
+        {
+            //suppose we read a file "file.txt".
+            using (StreamReader sr = new StreamReader(@"file.txt", Encoding.UTF8))
+            {
+                string text = sr.ReadToEnd();
+                return text;
+            }
+        }   
+    }
+}
+```
+
+Create a console application:
+
+```
+Assembly asm = Assembly.LoadFrom(@"C:\Projects\reflection\readfile.dll");
+
+//the parameter is in the format of "namespace.classname".
+Type t = asm.GetType("reflectionTest.ReadFile");
+
+MethodInfo m = t.GetMethod("readFileContents");
+
+//create an instance of class ReadFile
+//if "readFileContents" is a static method, no need to create an instance/object.
+object o = Activator.CreateInstance(t, null);
+
+string res = (string)m.Invoke(o, null);
+return res;
+```         
+
+
+
+                
+                //Directory.SetCurrentDirectory(@"C: \Users\jinplv\Documents\Visual Studio 2015\Projects\appdomain\readfile\readfile\bin\Debug");
+                Environment.CurrentDirectory = @"C: \Users\jinplv\Documents\Visual Studio 2015\Projects\appdomain\readfile\readfile\bin\Debug";
