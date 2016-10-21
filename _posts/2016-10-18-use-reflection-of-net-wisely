@@ -70,12 +70,13 @@ MethodInfo m = t.GetMethod("readFileContents");
 //if "readFileContents" is a static method, no need to create an instance/object.
 object o = Activator.CreateInstance(t, null);
 
-//invoke the method
+//change current working directory
 Directory.SetCurrentDirectory(Path.GetDirectoryName(@"C:\Projects\reflection\readfile.dll"));
+//invoke the method
 string res = (string)m.Invoke(o, null);
 return res;
 ```      
 
 Now it can run smoothly.
 
-BUT, 
+BUT, if your program is using "app.config" through `ConfigurationManager`.
