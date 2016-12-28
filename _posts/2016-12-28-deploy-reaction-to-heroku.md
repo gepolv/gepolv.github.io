@@ -10,7 +10,7 @@ cd reaction
 heroku create
 heroku apps:rename myteststore --app (current-name)
 heroku addons:create mongolab --app myteststore
-heroku config:set ROOT_URL=https://myteststore.herokuapp.com
+heroku config:set ROOT_URL=http://myteststore.herokuapp.com
 heroku buildpacks:set https://github.com/swrdfish/meteor-buildpack-horse.git
 git push heroku master
 
